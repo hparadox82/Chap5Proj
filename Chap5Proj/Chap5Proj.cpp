@@ -10,12 +10,13 @@ Do not accept a number less than 1 for the number of days they will multiply.
 */
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main()
 {
-	int startPop, multiDays;
-	float percGrow;
+	int multiDays;
+	double startPop, percGrow;
 	cout << "This program calculates an organism's population/increase\nbased on the parameters you provide." << endl;
 	cout << "Please tell me the starting population.\n";
 	cin >> startPop;
@@ -38,7 +39,12 @@ int main()
 		cout << "You cannot use less than one day.\nPlease try again.\n";
 		cin >> multiDays;
 	}
-
+	for (int day = 1; day <= multiDays; ++day )
+	{
+		startPop += startPop * percGrow;
+		cout << "Day " << day << ": " << setprecision(2) << startPop << " organisms" << endl << endl;
+	}
+	return 0;
 
 }
 
