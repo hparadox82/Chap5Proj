@@ -2,11 +2,39 @@
 /**/
 
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int main()
 {
-	
+	string nameTown, fileName;
+	ifstream inputFile;
+
+	cout << "Put in the name of your town: " << endl;
+	cin >> nameTown;
+	cout << "What's the name of the data file you wish to use?" << endl;
+	cin >> fileName;
+
+	inputFile.open(fileName.c_str());
+	if (!inputFile)
+	{
+		cout << "ERROR. INVALID FILE." << fileName << endl;
+		return 1;
+	}
+	int year, pop;
+
+	cout << nameTown << "'s population growth: " << endl;
+	while (inputFile >> year >> pop)
+	{
+		cout << year << "";
+		for (int i = 0; i < pop / 1000; ++i)
+		{
+			cout << "*";
+		}
+		cout << endl;
+	}
+	inputFile.close();
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
