@@ -14,31 +14,6 @@ using namespace std;
 
 int main()
 {
-	int startPop, multiDays;
-	float percGrow;
-	cout << "This program calculates an organism's population/increase\nbased on the parameters you provide." << endl;
-	cout << "Please tell me the starting population.\n";
-	cin >> startPop;
-	while (startPop<2)
-	{
-		cout << "Starting size cannot be less than two.\nPlease try again.\n";
-		cin >> startPop;
-	}
-	cout << "Now give me the population increase. Please input percentage as a decimal.\n";
-	cin >> percGrow;
-	while (percGrow < 0)
-	{
-		cout << "No negative numbers may be used.\nPlease try again.\n";
-		cin >> percGrow;
-	}
-	cout << "Finally, give me the number of days.\n";
-	cin >> multiDays;
-	while (multiDays < 1)
-	{
-		cout << "You cannot use less than one day.\nPlease try again.\n";
-		cin >> multiDays;
-	}
-
 
 }
 
