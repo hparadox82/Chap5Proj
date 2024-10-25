@@ -1,20 +1,55 @@
 // Chap5Proj.cpp : This file contains the 'main' function. Program execution begins and ends there.
-/*Write a program that will predict the size of a population of organisms. 
-The program should ask the user for the starting number of organisms, 
-their average daily population increase (as a percentage), 
-and the number of days they will multiply. 
-A loop should display the size of the population for each day.
-Input Validation: Do not accept a number less than 2 for the starting size of the population. 
-Do not accept a negative number for average daily population increase. 
-Do not accept a number less than 1 for the number of days they will multiply.
-*/
+/*A teacher has asked all her students to line up according to their first name. 
+For example, in one class Amy will be at the front of the line, 
+and Yolanda will be at the end. 
+Write a program that reads the student names from the file LineUp.txt. 
+The program should read names from the file until there is no more data 
+to read. Once all the names have been read, it reports the number of 
+students in the class, which student would be 
+at the front of the line, and which one would be at the end of the line. 
+You may assume that no two students have the same name.*/
 
 #include <iostream>
+#include <fstream>
+#include <string>
+
 using namespace std;
 
 int main()
 {
+	ifstream inputFile("Lineup.txt");
+	string name;
+	string first, mid, last;
+	int studcount = 0;
 
+	if (inputFile.is_open())
+	{
+		getline(inputFile, first);
+		last = first;
+		studcount++;
+
+		while (getline(inputFile, name))
+		{
+			if (name < first)
+				first = name;
+		}
+		if (name > last)
+		{
+			last = name;
+		}
+		if (name > first && name < last)
+		{
+			mid = name;
+		}
+		studcount++;
+
+	}
+	inputFile.close();
+
+	std::cout << "Line leader: " << first << endl;
+	std::cout << "Inbetween: " << mid << endl;
+	std::cout << "Caboose: " << last << endl;
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
