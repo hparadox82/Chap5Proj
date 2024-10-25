@@ -46,6 +46,7 @@ int main()
 	}
 	inputFile.close();
 
+	std::cout << "Total students: " << studcount << endl;
 	std::cout << "Line leader: " << first << endl;
 	std::cout << "Inbetween: " << mid << endl;
 	std::cout << "Caboose: " << last << endl;
